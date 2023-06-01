@@ -67,7 +67,15 @@ public class vacationPackageCalculator {
         // Display the total cost
         System.out.println("The total cost of the vacation package is: $" + totalCost);
     }
-
+	
+	/**
+	 * Checks if the input for the vacation package is valid.
+	 *
+	 * @param destination      the destination of the vacation
+	 * @param numberOfTravelers the number of travelers
+	 * @param duration         the duration of the vacation in days
+	 * @return true if the input is valid, false otherwise
+	 */
     private static boolean isValidInput (String destination, int numberOfTravelers, int duration) {
         // Check if destination is valid
         if (!destination.equalsIgnoreCase("Paris") && !destination.equalsIgnoreCase("New York City")) {
@@ -81,15 +89,22 @@ public class vacationPackageCalculator {
 
         return true;
     }
-
-    private static int calculateAdditionalCost(String destination) {
-        switch(destination.toLowerCase()) {
-            case "paris":
-                return 500;
-            case "new york city":
-                return 600;
-            default:
-                return 0;
+    
+    /**
+     * Calculates the additional cost for the given destination.
+     *
+     * @param destination the destination for which to calculate the additional cost
+     * @return the additional cost for the destination
+     */
+    private static int calculateAdditionalCost (String destination) {
+    	destination = destination.toLowerCase();
+        
+        if (destination.equals("paris")) {
+            return 500;
+        } else if (destination.equals("new york city")) {
+            return 600;
+        } else {
+            return 0;
         }
     }
 
